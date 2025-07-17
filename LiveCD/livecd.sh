@@ -23,7 +23,7 @@ fi
 rm -rf ISO_TMP
 cp -a ISO ISO_TMP
 
-cp -a VTOY VTOY_TMP 
+cp -a VTOY VTOY_TMP
 
 ls -la
 if ! [ -d ISO_TMP ]; then
@@ -77,7 +77,7 @@ sed "s/xxx/$version/g" -i EFI/boot/grub.cfg
 
 rm -f ../ventoy-${version}-livecd.iso
 
-xorriso -as mkisofs  -allow-lowercase  --sort-weight 0 / --sort-weight 1 /EFI  -v -R -J  -V  'VentoyLiveCD' -P 'VENTOY COMPATIBLE' -p 'https://www.ventoy.net' -sysid 'Ventoy' -A 'VentoyLiveCD' -b EFI/boot/cdrom.img --grub2-boot-info --grub2-mbr ../GRUB/boot_hybrid.img  -c EFI/boot/boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table -eltorito-alt-boot -e EFI/boot/efi.img -no-emul-boot  -append_partition 2 0xEF  EFI/boot/efi.img   -o ../ventoy-${version}-livecd.iso  .
+xorriso -as mkisofs  -allow-lowercase  --sort-weight 0 / --sort-weight 1 /EFI  -v -R -J  -V  'TUBS' -P 'thies USB Boot Stick' -p 'https://www.thies.xyz' -sysid 'TUBS' -A 'TUBS-Live' -b EFI/boot/cdrom.img --grub2-boot-info --grub2-mbr ../GRUB/boot_hybrid.img  -c EFI/boot/boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table -eltorito-alt-boot -e EFI/boot/efi.img -no-emul-boot  -append_partition 2 0xEF  EFI/boot/efi.img   -o ../tubs-${version}-livecd.iso  .
 
 cd ../
 rm -rf ISO_TMP
